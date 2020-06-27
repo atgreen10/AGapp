@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.mainMenuController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="431.0" prefWidth="1095.0">
+         <children>
+            <AnchorPane layoutX="20.0" layoutY="80.0" prefHeight="287.0" prefWidth="489.0" style="-fx-border-style: solid; -fx-border-radius: 25px;" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="571.0" AnchorPane.topAnchor="80.0">
+               <children>
+                  <Label layoutX="22.0" layoutY="19.0" prefHeight="32.0" prefWidth="51.0" text="Parts">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="mainPartTable" layoutX="12.0" layoutY="85.0" prefHeight="139.0" prefWidth="459.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0">
+                    <columns>
+                      <TableColumn fx:id="mainTablePartID" prefWidth="120.0" resizable="false" text="Part ID" />
+                      <TableColumn fx:id="mainTablePartName" prefWidth="120.0" text="Part Name" />
+                        <TableColumn fx:id="mainTablePartStock" prefWidth="120.0" text="Part Stock Level" />
+                        <TableColumn fx:id="mainTablePartPrice" prefWidth="120.0" text="Part Price " />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="mainPartSearchBtn" layoutX="239.0" layoutY="30.0" mnemonicParsing="false" text="Search" />
+                  <Button fx:id="mainAddPartBtn" layoutX="237.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainAddPartBtn" prefHeight="25.0" prefWidth="54.0" text="Add" AnchorPane.rightAnchor="200.0" />
+                  <Button fx:id="mainModPartBtn" layoutX="315.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainPartMod" prefHeight="25.0" prefWidth="54.0" text="Modify" AnchorPane.rightAnchor="120.0" />
+                  <Button fx:id="mainDeletePartBtn" layoutX="386.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainDeletePartBtn" prefHeight="25.0" prefWidth="54.0" text="Delete" AnchorPane.rightAnchor="40.0" />
+                  <TextField fx:id="mainPartSearchTxt" layoutX="312.0" layoutY="30.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="568.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="489.0" style="-fx-border-style: solid; -fx-border-radius: 25px;" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="576.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="80.0">
+               <children>
+                  <TableView fx:id="mainProdTable" layoutY="85.0" prefHeight="139.0" prefWidth="478.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columns>
+                        <TableColumn fx:id="mainTableProdID" prefWidth="120.0" resizable="false" text="Product ID" />
+                        <TableColumn fx:id="mainTableProdName" prefWidth="120.0" text="Product Name" />
+                        <TableColumn fx:id="mainTableProdStock" prefWidth="120.0" text="Product Stock Level" />
+                        <TableColumn fx:id="mainTableProdPrice" prefWidth="120.0" text="Product Price " />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="mainProdSearchBtn" layoutX="239.0" layoutY="30.0" mnemonicParsing="false" text="Search" />
+                  <Button fx:id="mainAddProdBtn" layoutX="237.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainAddProdBtn" prefHeight="25.0" prefWidth="54.0" text="Add" AnchorPane.rightAnchor="200.0" />
+                  <Button fx:id="mainModProdBtn" layoutX="315.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainModProdBtn" text="Modify" AnchorPane.rightAnchor="120.0" />
+                  <Button fx:id="mainDeleteProdBtn" layoutX="394.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainDeleteProdBtn" prefHeight="25.0" prefWidth="54.0" text="Delete" AnchorPane.rightAnchor="40.0" />
+                  <TextField fx:id="mainProdSearchTxt" layoutX="312.0" layoutY="30.0" />
+                  <Label layoutX="29.0" layoutY="30.0" prefHeight="25.0" prefWidth="74.0" text="Products" AnchorPane.leftAnchor="29.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="45.0" layoutY="36.0" text="Inventory Management System">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <HBox alignment="BOTTOM_RIGHT" layoutX="9.0" layoutY="356.0" prefHeight="61.0" prefWidth="1078.0">
+               <children>
+                  <Button fx:id="exitAppBtn" mnemonicParsing="false" onMouseClicked="#onClickMainExitBtn" prefHeight="32.0" prefWidth="74.0" text="Exit" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>

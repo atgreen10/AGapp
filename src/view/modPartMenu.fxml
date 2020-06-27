@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controller.modPartController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="521.0">
+         <children>
+            <VBox alignment="BOTTOM_LEFT" prefHeight="393.0" prefWidth="532.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="73.0" prefWidth="502.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="189.0" text="Modify Part">
+                           <HBox.margin>
+                              <Insets right="80.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="inHouseBtn" mnemonicParsing="false" prefHeight="17.0" prefWidth="143.0" text="In-House" />
+                        <RadioButton fx:id="outsourcedBtn" mnemonicParsing="false" prefHeight="17.0" prefWidth="141.0" selected="true" text="Outsourced">
+                           <HBox.margin>
+                              <Insets left="40.0" right="60.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <GridPane alignment="CENTER_LEFT" prefHeight="299.0" prefWidth="502.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="119.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="167.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="58.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="142.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="83.0" text="ID" />
+                        <Label text="Name" GridPane.rowIndex="1" />
+                        <Label text="Stock" GridPane.rowIndex="2" />
+                        <Label text="Price" GridPane.rowIndex="3" />
+                        <Label text="Max" GridPane.rowIndex="4" />
+                        <Label fx:id="modPartSourceLabel" text="Company Name" GridPane.rowIndex="5" />
+                        <TextField fx:id="modPartID" disable="true" editable="false" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Italic" size="12.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="modPartName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="modPartStock" prefHeight="25.0" prefWidth="88.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="modPartPrice" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="modPartMax" maxWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="modPartSourceTxt" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="modPartMin" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                        <Label text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="67.0" prefWidth="502.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="69.0" text="Save">
+                           <HBox.margin>
+                              <Insets right="25.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="modPartCancelBtn" cancelButton="true" layoutX="366.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#onClickModPartCancel" prefHeight="30.0" prefWidth="69.0" text="Cancel" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
