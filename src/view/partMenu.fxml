@@ -72,7 +72,7 @@
                         <TextField fx:id="partMinTxt" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                         <Label text="Min" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                         <TextField fx:id="partIDTxt" GridPane.columnIndex="1" />
-                        <Text fx:id="partSourceTitle" strokeType="OUTSIDE"  text="" wrappingWidth="99.13671875" GridPane.rowIndex="5" />
+                        <Text fx:id="partSourceTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="99.13671875" GridPane.rowIndex="5" />
                      </children>
                      <VBox.margin>
                         <Insets left="20.0" />

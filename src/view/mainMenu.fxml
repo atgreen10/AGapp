@@ -31,7 +31,7 @@
                         <TableColumn fx:id="mainTablePartPrice" prefWidth="120.0" text="Part Price " />
                     </columns>
                   </TableView>
-                  <Button fx:id="mainPartSearchBtn" layoutX="239.0" layoutY="30.0" mnemonicParsing="false" text="Search" />
+                  <Button fx:id="mainSearchPartBtn" layoutX="239.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#onClickMainSearchPartBtn" text="Search" />
                   <Button fx:id="mainAddPartBtn" layoutX="237.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainAddPartBtn" prefHeight="25.0" prefWidth="54.0" text="Add" AnchorPane.rightAnchor="200.0" />
                   <Button fx:id="mainModPartBtn" layoutX="315.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainPartMod" prefHeight="25.0" prefWidth="54.0" text="Modify" AnchorPane.rightAnchor="120.0" />
                   <Button fx:id="mainDeletePartBtn" layoutX="386.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#onClickMainDeletePartBtn" prefHeight="25.0" prefWidth="54.0" text="Delete" AnchorPane.rightAnchor="40.0" />

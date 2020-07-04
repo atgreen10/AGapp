@@ -14,8 +14,6 @@ import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class mainMenuController {
 
@@ -38,7 +36,10 @@ public class mainMenuController {
     private TableColumn<Part, Double> mainTablePartPrice;
 
     @FXML
-    private Button mainPartSearchBtn;
+    private TextField mainPartSearchTxt;
+
+    @FXML
+    private Button mainSearchPartBtn;
 
     @FXML
     private Button mainAddPartBtn;
@@ -48,9 +49,6 @@ public class mainMenuController {
 
     @FXML
     private Button mainDeletePartBtn;
-
-    @FXML
-    private TextField mainPartSearchTxt;
 
     @FXML
     private TableView<Product> mainProdTable;
@@ -87,7 +85,7 @@ public class mainMenuController {
 
     @FXML
     void onClickMainAddPartBtn(MouseEvent event) throws IOException {
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/view/partMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
@@ -95,7 +93,7 @@ public class mainMenuController {
 
     @FXML
     void onClickMainPartMod(MouseEvent event) throws IOException {
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scene = FXMLLoader.<Parent>load(getClass().getResource("/view/modPartMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
@@ -103,7 +101,7 @@ public class mainMenuController {
 
     @FXML
     void onClickMainAddProdBtn(MouseEvent event) throws IOException {
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/view/prodMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
@@ -127,68 +125,102 @@ public class mainMenuController {
 
     @FXML
     void onClickMainModProdBtn(MouseEvent event) throws IOException {
-        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
         scene = FXMLLoader.load(getClass().getResource("/view/modProdMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
     }
 
-   /* public boolean mainPartSearchRequest(int partID) {
+    @FXML
+    void onClickMainSearchPartBtn(MouseEvent event) {
+        //searches the part table for matching ID in search term and returns true if found
+        searchPart(Integer.parseInt(mainPartSearchTxt.getText()));
+    }
+
+    //search parts table with ID
+    public boolean searchPart(int partID) {
         for (Part part : Inventory.getAllParts()) {
-            if (part.getPartID() == partID)
+            if (part.getPartID() == partID) {
+                System.out.println("It worked");
                 return true;
+
+            }
         }
         return false;
     }
 
-    public boolean update(int ID, Part part){
+    public boolean Update(int partID, Part part1){
+        //related to indexed position of item in table
         int index = -1;
-
-        for(Part InHouse : Inventory.getAllParts()){
+        //searches for already existing part in tbl. If one does exist then we are going to replace it with a new part object.
+        for(Part part : Inventory.getAllParts()) {
             index++;
-
-            if(part.getPartID() == ID);
+            if (part.getPartID() == partID) {
+                Inventory.getAllParts().set(index, part1);
+                return true;
+            }
         }
+        return false;
     }
-*/
 
-
-        public void initialize() {
-            //sets up table view
-            mainPartTable.setItems(Inventory.getAllParts());
-
-            //Describes where the columns get their info.
-            mainTablePartID.setCellValueFactory(new PropertyValueFactory<>("partID"));
-            mainTablePartName.setCellValueFactory(new PropertyValueFactory<>("partName"));
-            mainTablePartPrice.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
-            mainTablePartStock.setCellValueFactory(new PropertyValueFactory<>("partStock"));
-
-
-
-
-   /* if (mainPartSearchRequest(3)){
-        System.out.println("found");
+    //deletes an item with the included partID in parenthesis. then returns the remaining items. Still needs to be attached to page element
+    public boolean Delete(int partID){
+        for(Part part : Inventory.getAllParts()) {
+            if (part.getPartID() == partID) {
+                return Inventory.getAllParts().remove(part);
+            }
+        }
+        return false;
     }
-    else{
-        System.out.println("Error");
-     }*/
 
 
+    //still needs to be attached to page element
+    public Part selectPart(int ID) {
+        for (Part part : Inventory.getAllParts()) {
+            if (part.getPartID() == ID) {
+                return part;
+            }
+        }
+        return null;
+    }
 
+
+    public void initialize(){
+        //sets up table view
+        mainPartTable.setItems(Inventory.getAllParts());
+
+        //Describes where the columns get their info.
+        mainTablePartID.setCellValueFactory(new PropertyValueFactory<>("partID"));
+        mainTablePartName.setCellValueFactory(new PropertyValueFactory<>("partName"));
+        mainTablePartPrice.setCellValueFactory(new PropertyValueFactory<>("partPrice"));
+        mainTablePartStock.setCellValueFactory(new PropertyValueFactory<>("partStock"));
+
+
+        //Sets up product table.
         mainProdTable.setItems(Inventory.getAllProducts());
-
+        //describes product table on main page.
         mainTableProdID.setCellValueFactory(new PropertyValueFactory<>("prodID"));
         mainTableProdName.setCellValueFactory(new PropertyValueFactory<>("prodName"));
         mainTableProdPrice.setCellValueFactory(new PropertyValueFactory<>("prodPrice"));
         mainTableProdStock.setCellValueFactory(new PropertyValueFactory<>("prodStock"));
 
-      //  String mainProdSearchRequest;
 
+       /* if(Update(2, (new InHouse(13, "RX5700 XT", 450.00, 11, 31, 1, 625,true)))){
+            System.out.println("Successful update");
 
+        }
+        else {
+            System.out.println("Update failed");
+        }
+        if(Delete(2)){
+            System.out.println("Deleted");
+        }
+        else {
+            System.out.println("Not Found");
+        }*/
 
-
+        mainPartTable.getSelectionModel().select(selectPart(1));
 
     }
-
 
 }
