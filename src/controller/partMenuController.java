@@ -1,6 +1,6 @@
 package controller;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -96,16 +96,19 @@ public class partMenuController {
         scene = FXMLLoader.load(getClass().getResource("/view/mainMenu.fxml"));
         stage.setScene(new Scene(scene));
         stage.show();
-        }
+    }
 
     @FXML
     void onClickInHouseBtn(MouseEvent event) {
+        partSourceTitle.setVisible(true);
+        partSourceTxt.setVisible(true);
         partSourceTitle.setText("Machine ID");
-
     }
 
     @FXML
     void onClickOutSourcedBtn(MouseEvent event) {
+        partSourceTitle.setVisible(true);
+        partSourceTxt.setVisible(true);
         partSourceTitle.setText("Company Name");
 
     }
