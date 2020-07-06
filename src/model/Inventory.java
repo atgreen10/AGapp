@@ -1,28 +1,20 @@
 package model;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+public class InHouse extends Part {
 
-public class Inventory {
+    private int machineID;
 
-    private static ObservableList<Part> allParts = FXCollections.observableArrayList();
-
-    public static void addPart(Part part) {
-        allParts.add(part);
+    public InHouse(int partID, String partName, double partPrice, int partStock, int partMax, int partMin, int machineID, boolean sourcedInHouse) {
+        super(partID, partName, partPrice, partStock, partMax, partMin, sourcedInHouse);
+        this.machineID = machineID;
     }
 
-    public static ObservableList<Part> getAllParts() {
-        System.out.println(allParts);
-        return allParts;
+    public int getMachineID() {
+        return this.machineID;
     }
 
-    private static ObservableList<Product> allProducts = FXCollections.observableArrayList();
+    public void setCompanyName(int machineID) {
 
-    public static void addProd(Product product) {
-        allProducts.add(product);
-    }
-
-    public static ObservableList<Product> getAllProducts() {
-        return allProducts;
+        this.machineID = machineID;
     }
 }
