@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -108,10 +109,10 @@ public class mainMenuController {
     }
 
     @FXML
-    void onClickMainDeletePartBtn(MouseEvent event) {
+    void onClickMainDeletePartBtn(MouseEvent event) {/*
+        Delete(selectPart());*/
 
     }
-
     @FXML
     void onClickMainDeleteProdBtn(MouseEvent event) {
 
@@ -185,6 +186,12 @@ public class mainMenuController {
     }
 
 
+   /* public ObservableList<Part> filter(String product){
+        for(Part part : Inventory.getAllParts())
+
+    }
+*/
+
     public void initialize(){
         //sets up table view
         mainPartTable.setItems(Inventory.getAllParts());
@@ -205,6 +212,10 @@ public class mainMenuController {
         mainTableProdStock.setCellValueFactory(new PropertyValueFactory<>("prodStock"));
 
 
+		
+		//testing area
+		
+		
        /* if(Update(2, (new InHouse(13, "RX5700 XT", 450.00, 11, 31, 1, 625,true)))){
             System.out.println("Successful update");
 
@@ -221,6 +232,6 @@ public class mainMenuController {
 
         mainPartTable.getSelectionModel().select(selectPart(1));
 
-    }
+	}
 
 }
