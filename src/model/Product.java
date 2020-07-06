@@ -6,7 +6,7 @@ public class Product {
     private int prodID, prodStock, prodMin, prodMax;
     private String prodName;
     private double prodPrice;
-    private ObservableList<Part> associatedParts;
+    private ObservableList<Product> associatedParts;
 
     public Product(int prodID, String prodName, double prodPrice, int prodStock, int prodMax, int prodMin){
         this.prodID = prodID;
